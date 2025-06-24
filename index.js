@@ -12,3 +12,10 @@ if (home) {
         window.location.href = 'http://127.0.0.1:5502/index.html';
     });
 }
+
+const pay = document.querySelector('.pay');
+if (pay) {
+    pay.addEventListener('click', () => {
+        window.location.href = 'http://127.0.0.1:5502/payment.html';
+    });
+}

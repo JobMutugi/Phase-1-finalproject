@@ -1,0 +1,27 @@
+body {
+    height: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    background: 
+        linear-gradient(to right, rgba(0, 0, 0, 0.7) 65%, rgb(250, 19, 2, 0.3)),
+        url('./nathan-dumlao-lvWw_G8tKsk-unsplash.jpg');
+    margin-top: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100vw;
+
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    padding: 200px;
+    box-sizing: border-box;
+    background-color: rgba(252, 243, 232, 0.8);
+    border-radius: 20px;
+}
+

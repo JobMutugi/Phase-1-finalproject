@@ -1,9 +1,23 @@
-.btn{
+.btn {
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+    margin-top: 30%;
+    border-radius: 4%;
+}
 
- 
-position: fixed;
-bottom: 20px;
-right: 20px;
 
 
+
+.pay {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 20px;
+    border-radius: 4%;
+    float: right; 
+    margin-right: 10%;
+    margin-top: -5%;
+    width: 25%;
 }
