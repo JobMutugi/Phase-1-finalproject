@@ -1,23 +1,36 @@
 .btn {
     display: flex;
+    flex-direction: row; /* Place buttons in a row */
     justify-content: center;
+    align-items: center;
+    gap: 16px; /* Adds space between buttons */
     padding: 2%;
-    margin-top: 30%;
     border-radius: 4%;
 }
-
-
-
 
 .pay {
     display: block;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
     padding: 20px;
     border-radius: 4%;
-    float: right; 
-    margin-right: 10%;
-    margin-top: -5%;
     width: 25%;
 }
+
+
+#images img {
+    width: 30%;
+    object-fit: cover;
+padding: 10px;
+
+
+}
+
+#images img {
+  filter: blur(8px);
+  transition: filter 0.5s ease;
+}
+
+#images.clear img {
+  filter: blur(0);
+}
+
+
