@@ -44,26 +44,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
 function button1() {
   const acceptBtn = document.querySelector('.Accept');
   const amountInput = document.getElementById('amount');
 
   if (acceptBtn && amountInput) {
     acceptBtn.addEventListener('click', function () {
-      amountInput.value = '';
-      amountInput.placeholder = '✅ Your order has been processed';
+      const amount = amountInput.value.trim();
 
-      
+      if (amount !== '' && !isNaN(amount)) {
+        amountInput.value = '';
+        amountInput.placeholder = '✅ Your order has been processed';
+      } else {
+        amountInput.value = '';
+        amountInput.placeholder = '❌ Please enter a valid number';
+      }
+
       setTimeout(() => {
         amountInput.placeholder = 'ENTER YOUR AMOUNT HERE';
       }, 4000);
     });
   }
 }
-
-button1();
-
 
 function button2() {
   const declineBtn = document.querySelector('.Decline');
@@ -74,7 +76,6 @@ function button2() {
       amountInput.value = '';
       amountInput.placeholder = '❌ Your order has been declined';
 
-      
       setTimeout(() => {
         amountInput.placeholder = 'ENTER YOUR AMOUNT HERE';
       }, 4000);
@@ -82,4 +83,5 @@ function button2() {
   }
 }
 
+button1();
 button2();
