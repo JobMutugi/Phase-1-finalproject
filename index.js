@@ -44,14 +44,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
 function button1() {
   const acceptBtn = document.querySelector('.Accept');
-  const amountInput = document.getElementById('amount'); 
+  const amountInput = document.getElementById('amount');
 
   if (acceptBtn && amountInput) {
     acceptBtn.addEventListener('click', function () {
-      amountInput.value = ''; 
+      amountInput.value = '';
       amountInput.placeholder = '✅ Your order has been processed';
+
+      
+      setTimeout(() => {
+        amountInput.placeholder = 'ENTER YOUR AMOUNT HERE';
+      }, 4000);
     });
   }
 }
@@ -59,19 +65,21 @@ function button1() {
 button1();
 
 
-
 function button2() {
-  const acceptBtn = document.querySelector('.Decline');
-  const amountInput = document.getElementById('amount'); 
+  const declineBtn = document.querySelector('.Decline');
+  const amountInput = document.getElementById('amount');
 
-  if (acceptBtn && amountInput) {
-    acceptBtn.addEventListener('click', function () {
-      amountInput.value = ''; 
-      amountInput.placeholder = ' ❌Your order has been declined';
+  if (declineBtn && amountInput) {
+    declineBtn.addEventListener('click', function () {
+      amountInput.value = '';
+      amountInput.placeholder = '❌ Your order has been declined';
+
+      
+      setTimeout(() => {
+        amountInput.placeholder = 'ENTER YOUR AMOUNT HERE';
+      }, 4000);
     });
   }
 }
 
 button2();
-
-
