@@ -22,11 +22,20 @@ if (pay) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const button = document.querySelector('.btn');
-  const imagesContainer = document.getElementById('images');
+const orderButtons = document.querySelectorAll(".order");
 
-  button.addEventListener('click', function () {
+orderButtons.forEach(order => {
+    order.addEventListener('click', () => {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const imagesContainer = document.getElementById('images');
+  const revealButton = document.querySelector('.btn'); 
+
+  revealButton.addEventListener('click', function () {
     imagesContainer.classList.add('clear');
   });
 });

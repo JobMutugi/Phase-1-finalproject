@@ -1,9 +1,9 @@
 .btn {
     display: flex;
-    flex-direction: row; /* Place buttons in a row */
+    flex-direction: row; 
     justify-content: center;
     align-items: center;
-    gap: 16px; /* Adds space between buttons */
+    gap: 16px; 
     padding: 2%;
     border-radius: 4%;
 }
@@ -24,13 +24,14 @@ padding: 10px;
 
 }
 
-#images img {
+ 
+#images img,
+#images .order {
   filter: blur(8px);
   transition: filter 0.5s ease;
 }
 
-#images.clear img {
+#images.clear img,
+#images.clear .order {
   filter: blur(0);
 }
-
-
