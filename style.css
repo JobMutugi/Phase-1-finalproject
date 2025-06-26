@@ -7,13 +7,15 @@
   padding: 20px;
   border-radius: 4%;
   border: 3px solid transparent;
-background-color: bisque;
+background-color: rgb(4, 197, 123, 0.8);
 width:15%;
 border-color: black;
 border-width:3px ;
 border-width:3px ;
 border-width:3px ;
-
+font-size: 14px;
+font-weight: 800;
+font-style: italic;
 }
 
 
@@ -22,11 +24,18 @@ border-width:3px ;
     padding: 20px;
     border-radius: 4%;
     width: 15%;
-background-color: bisque;
+background-color: rgb(4, 197, 123, 0.8);
 border-color: black;
 border-width:3px ;
-  
+  font-size: 14px;
+font-weight: 800;
+font-style: italic;
 }
+
+.img{
+border-radius: 20px;
+}
+
 
 
 #images img {
@@ -41,7 +50,7 @@ padding: 10px;
 #images img,
 #images .order {
   filter: blur(10px);
-  transition: filter 0.5s ease;
+  transition: filter 0.9s ease;
 }
 
 #images.clear img,
@@ -49,7 +58,7 @@ padding: 10px;
   filter: blur(0);
 }
 body {
-    background: linear-gradient(270deg, rgba(0, 0, 0), rgba(49, 0, 16, 0.5), rgba(61, 22, 0, 0.7));
+    background: linear-gradient(270deg, rgba(20, 94, 53, 0.6), rgba(116, 1, 1, 0.5), rgba(61, 22, 0, 0.7));
     background-size: 600% 600%;
     animation: gradientBG 15s ease infinite;
 }
@@ -64,4 +73,20 @@ body {
   100% {
      background-position: 0% 50%;
   }
+}
+
+h3{
+
+  font-size: x-large;
+font-weight: 900;
+font-style: italic;
+color: rgb(145, 25, 9);
+
+}
+
+h4{
+font-size: large;
+font-weight: 800;
+font-style: italic;
+color:rgb(7, 5, 126);
 }
