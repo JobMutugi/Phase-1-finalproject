@@ -1,110 +1,135 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const button = document.querySelector('.btn');
-  const home = document.querySelector('.home');
-  const pay = document.querySelector('.pay');
-  const imagesContainer = document.getElementById('images');
+document.addEventListener('DOMContentLoaded', function() {
+  
+  //We get all elements by their given id 
+  const productsContainer = document.getElementById('products-container');
+  const amountInput = document.getElementById('amount');
+  const viewProductsBtn = document.querySelector('.view-products');
+  const checkoutBtn = document.querySelector('.checkout-btn');
+  const acceptBtn = document.querySelector('.accept');
+  const declineBtn = document.querySelector('.decline');
+  const homeBtn = document.querySelector('.home');
+  
+  
+  let selectedProduct = null;
 
-  const orderButtons = document.querySelectorAll('.order');
-  const amountBox = document.getElementById('amount');
-  const acceptButton = document.querySelector('.Accept');
-  const declineButton = document.querySelector('.Decline');
-  const inputArea = document.querySelector('.typing-container');
+  // All the furniture products and images
+  const furnitureProducts = [
+    { id: 1, name: "Modern Sofa", price: 15000, image: "pexels-pixabay-276534.jpg" },
+    { id: 2, name: "Luxury Chair", price: 22000, image: "pexels-pixabay-276583.jpg" },
+    { id: 3, name: "Comfortable Sofa", price: 20000, image: "pexels-donaldtong94-133919.jpg" },
+    { id: 4, name: "Coffee Table", price: 7000, image: "pexels-eric-mufasa-578798-1350789.jpg" },
+    { id: 5, name: "Luxury Sofa", price: 42000, image: "pexels-fotoaibe-1571460.jpg" },
+    { id: 6, name: "Sofa", price: 23000, image: "pexels-olly-3757055.jpg" },
+    { id: 7, name: "Sofa", price: 20000, image: "phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg" },
+    { id: 8, name: "Set of Sofa", price: 39000, image: "pexels-eurooo-1090092.jpg" },
+    { id: 9, name: "Modern Sofa", price: 25000, image: "pexels-heyho-6782424.jpg" },
+    { id: 10, name: "Comfortable Sofa", price: 17000, image: "pexels-keeganjchecks-10032378.jpg" },
+    { id: 11, name: "Coffee Table", price: 6000, image: "jake-goossen-EaexzaHDN98-unsplash.jpg" },
+    { id: 12, name: "Dinning Table", price: 32500, image: "jean-philippe-delberghe-F0DdaYs0EeQ-unsplash.jpg" },
+    { id: 13, name: "Dinning Table", price: 38000, image: "don-kaveen-NFbwes_e-jI-unsplash.jpg" },
+    { id: 14, name: "Dinning Table", price: 30000, image: "collov-home-design-v9096DgeVeA-unsplash.jpg" },
+    { id: 15, name: "Coffee Table", price: 5500, image: "angelina-cXmER3VNxUA-unsplash.jpg" },
+    { id: 16, name: "Pillow", price: 1500, image: "pexels-anna-nekrashevich-6603475.jpg" },
+    { id: 17, name: "Pillow", price: 2500, image: "personalgraphic-com-BlPj9WDIVlA-unsplash.jpg" },
+    { id: 18, name: "Pillow", price: 3000, image: "pexels-atomlaborblog-776120.jpg" }
+  ];
 
-  let selectedImage = null;
+  // Function to show all products
+  function showAllProducts() {
+    productsContainer.innerHTML = '';
+    
+    furnitureProducts.forEach(product => {
+      const productDiv = document.createElement('div');
+      productDiv.className = 'product';
+      
+      productDiv.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>KES ${product.price}</p>
+        <button class="order-btn" data-id="${product.id}">Order Now</button>
+      `;
+      
+      productsContainer.appendChild(productDiv);
+    });
 
-  // Scroll to top for .btn and .home
-  if (button) {
-    button.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    document.querySelectorAll('.order-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const productId = parseInt(this.getAttribute('data-id'));
+        selectedProduct = furnitureProducts.find(item => item.id === productId);
+        
+        if (selectedProduct) {
+          selectedProduct.buttonElement = this;
+          amountInput.value = selectedProduct.price;
+          document.querySelector('.payment').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
     });
   }
 
-  if (home) {
-    home.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // Scroll to bottom for .pay
-  if (pay) {
-    pay.addEventListener('click', () => {
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    });
-  }
-
-  // Scroll to bottom when any ORDER button is clicked
-  orderButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      selectedImage = button.previousElementSibling;
-
-      const price = button.getAttribute('data-price'); // Get price suggestion
-
-      inputArea.scrollIntoView({ behavior: 'smooth' });
-
-      amountBox.value = price || '';
-      amountBox.placeholder = 'ENTER YOUR AMOUNT HERE';
-    });
+  
+  viewProductsBtn.addEventListener('click', function() {
+    showAllProducts();
+    productsContainer.scrollIntoView({ behavior: 'smooth' });
   });
 
-  // Reveal images when 'Check Out Our Products' button is clicked
-  if (button && imagesContainer) {
-    button.addEventListener('click', function () {
-      imagesContainer.classList.add('clear');
+  checkoutBtn.addEventListener('click', function() {
+    document.querySelector('.payment').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  homeBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  acceptBtn.addEventListener('click', function() {
+    if (!selectedProduct) {
+      amountInput.placeholder = "Please select a product first!";
+      return;
+    }
+    
+    const amount = parseFloat(amountInput.value);
+    if (isNaN(amount)) {
+      amountInput.placeholder = "Please enter a valid number!";
+      amountInput.value = "";
+      return;
+    }
+    
+    selectedProduct.buttonElement.textContent = "ORDERED";
+    selectedProduct.buttonElement.style.background = "#4CAF50";
+    selectedProduct.buttonElement.style.color = "white";
+    
+    selectedProduct.buttonElement.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'center'
     });
-  }
+    
+    setTimeout(() => {
+      selectedProduct.buttonElement.textContent = "Order Now";
+      selectedProduct.buttonElement.style.background = "#FFC107";
+      selectedProduct.buttonElement.style.color = "black";
+      amountInput.value = "";
+    }, 6000);
+  });
 
-  // ACCEPT button logic
-  if (acceptButton) {
-    acceptButton.addEventListener('click', () => {
-      const enteredAmount = amountBox.value.trim();
-
-      if (enteredAmount !== '' && !isNaN(enteredAmount)) {
-        amountBox.value = '';
-        amountBox.placeholder = '✅ Order accepted!';
-
-        if (selectedImage) {
-          const orderBtn = selectedImage.nextElementSibling;
-          selectedImage.scrollIntoView({ behavior: 'smooth' });
-
-          orderBtn.style.backgroundColor = 'green';
-          orderBtn.textContent = '✔ ORDERED';
-
-          setTimeout(() => {
-            amountBox.placeholder = 'ENTER YOUR AMOUNT HERE';
-          }, 4000);
-        }
-      } else {
-        amountBox.value = '';
-        amountBox.placeholder = '❌ Enter a valid number to proceed!';
-        setTimeout(() => {
-          amountBox.placeholder = 'ENTER YOUR AMOUNT HERE';
-        }, 4000);
-      }
+  declineBtn.addEventListener('click', function() {
+    if (!selectedProduct) return;
+    
+    selectedProduct.buttonElement.textContent = "CANCELLED";
+    selectedProduct.buttonElement.style.background = "#f44336";
+    selectedProduct.buttonElement.style.color = "white";
+    
+    selectedProduct.buttonElement.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'center'
     });
-  }
+    
+    setTimeout(() => {
+      selectedProduct.buttonElement.textContent = "Order Now";
+      selectedProduct.buttonElement.style.background = "#FFC107";
+      selectedProduct.buttonElement.style.color = "black";
+      amountInput.value = "";
+    }, 6000);
+  });
 
-  // DECLINE button logic
-  if (declineButton) {
-    declineButton.addEventListener('click', () => {
-      amountBox.value = '';
-      amountBox.placeholder = '❌ Order cancelled';
-
-      if (selectedImage) {
-        const orderBtn = selectedImage.nextElementSibling;
-        selectedImage.scrollIntoView({ behavior: 'smooth' });
-
-        orderBtn.style.backgroundColor = 'red';
-        orderBtn.textContent = '✖ CANCELLED';
-
-        setTimeout(() => {
-          orderBtn.style.backgroundColor = '';
-          orderBtn.textContent = 'ORDER';
-        }, 4000);
-      }
-
-      setTimeout(() => {
-        amountBox.placeholder = 'ENTER YOUR AMOUNT HERE';
-      }, 4000);
-    });
-  }
+  showAllProducts();
 });
