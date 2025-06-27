@@ -1,53 +1,44 @@
-# Phase-1-finalproject
+#  A Furniture  Website
 
-This project sets up a simple mock REST API using [`json-server`](https://github.com/typicode/json-server). It is designed to help you quickly prototype and test front-end applications without needing a real backend.
+A simple, interactive furniture store website featuring product that are displayed 
 
-## Features
+##  Features
 
-- Fast setup for a RESTful API
-- Customizable endpoints and data via `db.json`
-- Supports CRUD operations (GET, POST, PUT, PATCH, DELETE)
-- Watches for changes in your data file and reloads automatically
+**18 Furniture Products** with high-quality images
+ **Interactive Order Buttons** for each product
+ **Smooth Scrolling** inside the website
+ **Responsive Design** for all devices
+ 
 
-## Getting Started
+##  Installation
 
-### Prerequisites
+1. **Clone the repository:**
+    bash
+    git clone https://github.com/JobMutugi/furniture-store.git
 
-- [Node.js](https://nodejs.org/) installed on your machine
+    
 
-### Installation
 
-Install `json-server` as a development dependency:
 
-```bash
-npm install json-server
-```
 
-### Usage
+## Usage
 
-Start the JSON server with:
+- Click **View Products** to browse all furniture.
+- Click **Order Now** to start an order.
+- Enter your amount and use **Accept** or **Decline** for feedback.
+- Use **Checkout** to proceed to payment.
+- Use **Home** to return to the top.
 
-```bash
-npx json-server --watch db.json
-```
+##  Customization
 
-- The server will run at [http://localhost:3000](http://localhost:3000) by default.
-- Edit `db.json` to customize your API data.
-
-## Project Structure
-
-- **db.json**: Your mock database in JSON format.
-- **src/index.js**: (Optional) Entry point for custom server logic or middleware.
-- **package.json**: Project metadata and scripts.
-
-## Customization
-
-You can extend or customize the server by editing `src/index.js` to add middleware, custom routes, or authentication.
+- Edit `db.json` or `index.js` to manage products.
+- Replace images in `/images` for your own products.
+- Adjust `style.css` for custom styles.
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request for suggestions or improvements.
+Contributions are welcome! Open an issue or submit a pull request for suggestions or improvements.
 
 ## License
 
-This project is licensed under the MIT License.
+Licensed under the MIT License.
