@@ -30,7 +30,8 @@ A simple, interactive furniture store website featuring product that are display
 - Use **Home** to return to the top.
 
 ##  Customization
-
+- Update the website URL in your project settings or documentation if you deploy it.  
+- **Live Demo:** [View the website here](https://jobmutugi.github.io/Phase-1-finalproject/)
 - Edit `db.json` or `index.js` to manage products.
 - Replace images in `/images` for your own products.
 - Adjust `style.css` for custom styles.
