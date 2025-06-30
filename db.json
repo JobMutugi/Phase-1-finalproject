@@ -14,7 +14,7 @@
     },
     {
       "id": 3,
-      "name": "Comfortable Bed",
+      "name": "Comfortable Sofa",
       "price": 20000,
       "image": "pexels-donaldtong94-133919.jpg"
     },
@@ -26,153 +26,88 @@
     },
     {
       "id": 5,
-      "name": "Sectional Sofa",
+      "name": "Luxury Sofa",
       "price": 42000,
       "image": "pexels-fotoaibe-1571460.jpg"
     },
     {
       "id": 6,
-      "name": "Office Chair",
+      "name": "Sofa",
       "price": 23000,
       "image": "pexels-olly-3757055.jpg"
     },
     {
       "id": 7,
-      "name": "Dining Table",
+      "name": "Sofa",
       "price": 20000,
       "image": "phillip-goldsberry-fZuleEfeA1Q-unsplash.jpg"
     },
     {
       "id": 8,
-      "name": "Bookshelf",
+      "name": "Set of Sofa",
       "price": 39000,
       "image": "pexels-eurooo-1090092.jpg"
     },
     {
       "id": 9,
-      "name": "Armchair",
+      "name": "Modern Sofa",
       "price": 25000,
       "image": "pexels-heyho-6782424.jpg"
     },
     {
       "id": 10,
-      "name": "Desk",
+      "name": "Comfortable Sofa",
       "price": 17000,
       "image": "pexels-keeganjchecks-10032378.jpg"
     },
     {
       "id": 11,
-      "name": "Side Table",
+      "name": "Coffee Table",
       "price": 6000,
       "image": "jake-goossen-EaexzaHDN98-unsplash.jpg"
     },
     {
       "id": 12,
-      "name": "Wardrobe",
+      "name": "Dinning Table",
       "price": 32500,
       "image": "jean-philippe-delberghe-F0DdaYs0EeQ-unsplash.jpg"
     },
     {
       "id": 13,
-      "name": "TV Stand",
+      "name": "Dinning Table",
       "price": 38000,
       "image": "don-kaveen-NFbwes_e-jI-unsplash.jpg"
     },
     {
       "id": 14,
-      "name": "Console Table",
+      "name": "Dinning Table",
       "price": 30000,
       "image": "collov-home-design-v9096DgeVeA-unsplash.jpg"
     },
     {
       "id": 15,
-      "name": "Nightstand",
+      "name": "Coffee Table",
       "price": 5500,
       "image": "angelina-cXmER3VNxUA-unsplash.jpg"
     },
     {
       "id": 16,
-      "name": "Stool",
+      "name": "Pillow",
       "price": 1500,
       "image": "pexels-anna-nekrashevich-6603475.jpg"
     },
     {
       "id": 17,
-      "name": "Bench",
+      "name": "Pillow",
       "price": 2500,
       "image": "personalgraphic-com-BlPj9WDIVlA-unsplash.jpg"
     },
     {
       "id": 18,
-      "name": "Shelving Unit",
+      "name": "Pillow",
       "price": 3000,
       "image": "pexels-atomlaborblog-776120.jpg"
-    }
-  ],
-  "orders": [
-    {
-      "id": "7b46",
-      "productId": 1,
-      "productName": "Modern Sofa",
-      "amount": 15000,
-      "date": "2025-06-26T18:24:38.066Z",
-      "status": "pending"
-    },
-    {
-      "id": "64dc",
-      "productId": 2,
-      "productName": "Luxury Chair",
-      "amount": 22000,
-      "date": "2025-06-26T18:24:43.494Z",
-      "status": "pending"
-    },
-    {
-      "id": "3d98",
-      "productId": 1,
-      "productName": "Modern Sofa",
-      "amount": 15000,
-      "date": "2025-06-26T18:24:55.578Z",
-      "status": "pending"
-    },
-    {
-      "id": "ee72",
-      "productId": 17,
-      "productName": "Bench",
-      "amount": 2500,
-      "date": "2025-06-26T18:25:04.946Z",
-      "status": "pending"
-    },
-    {
-      "id": "9ab8",
-      "productId": 17,
-      "productName": "Bench",
-      "amount": 2500,
-      "date": "2025-06-26T18:25:21.290Z",
-      "status": "pending"
-    },
-    {
-      "id": "9190",
-      "productId": 17,
-      "productName": "Bench",
-      "amount": 2500,
-      "date": "2025-06-26T18:25:29.448Z",
-      "status": "pending"
-    },
-    {
-      "id": "3fb7",
-      "productId": 17,
-      "productName": "Bench",
-      "amount": 2500,
-      "date": "2025-06-26T18:29:46.659Z",
-      "status": "pending"
-    },
-    {
-      "id": "e295",
-      "productId": 1,
-      "productName": "Modern Sofa",
-      "amount": 15000,
-      "date": "2025-06-26T18:30:13.004Z",
-      "status": "pending"
-    }
-  ]
-}
+      }
+    ]
+  }
+ 
