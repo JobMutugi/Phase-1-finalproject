@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
   
-  //We get all elements by their given id 
   const productsContainer = document.getElementById('products-container');
   const amountInput = document.getElementById('amount');
   const viewProductsBtn = document.querySelector('.view-products');
@@ -9,10 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const declineBtn = document.querySelector('.decline');
   const homeBtn = document.querySelector('.home');
   
-  
   let selectedProduct = null;
 
-  // All the furniture products and images
+  // Products data
   const furnitureProducts = [
     { id: 1, name: "Modern Sofa", price: 15000, image: "pexels-pixabay-276534.jpg" },
     { id: 2, name: "Luxury Chair", price: 22000, image: "pexels-pixabay-276583.jpg" },
@@ -34,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { id: 18, name: "Pillow", price: 3000, image: "pexels-atomlaborblog-776120.jpg" }
   ];
 
-  // Function to show all products
+  // Function to render images
   function showAllProducts() {
     productsContainer.innerHTML = '';
     
@@ -43,16 +41,16 @@ document.addEventListener('DOMContentLoaded', function() {
       productDiv.className = 'product';
       
       productDiv.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
+        <img src="${product.image}" alt="${product.name}"> <!-- No 'images/' prefix -->
         <h3>${product.name}</h3>
-        <p>KES ${product.price}</p>
+        <p>KES ${product.price.toLocaleString()}</p>
         <button class="order-btn" data-id="${product.id}">Order Now</button>
       `;
       
       productsContainer.appendChild(productDiv);
     });
 
-
+    // Add event listeners to the buttons
     document.querySelectorAll('.order-btn').forEach(button => {
       button.addEventListener('click', function() {
         const productId = parseInt(this.getAttribute('data-id'));
@@ -67,23 +65,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  
-  viewProductsBtn.addEventListener('click', function() {
+  // Event Listeners
+  viewProductsBtn?.addEventListener('click', () => {
     showAllProducts();
     productsContainer.scrollIntoView({ behavior: 'smooth' });
   });
 
-  checkoutBtn.addEventListener('click', function() {
+  checkoutBtn?.addEventListener('click', () => {
     document.querySelector('.payment').scrollIntoView({ behavior: 'smooth' });
   });
 
-  homeBtn.addEventListener('click', function() {
+  homeBtn?.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  acceptBtn.addEventListener('click', function() {
+  acceptBtn?.addEventListener('click', () => {
     if (!selectedProduct) {
       amountInput.placeholder = "Please select a product first!";
+      amountInput.value = "";
       return;
     }
     
@@ -94,42 +93,37 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
     
-    selectedProduct.buttonElement.textContent = "ORDERED";
-    selectedProduct.buttonElement.style.background = "#4CAF50";
-    selectedProduct.buttonElement.style.color = "white";
-    
-    selectedProduct.buttonElement.scrollIntoView({ 
-      behavior: 'smooth',
-      block: 'center'
-    });
+    updateButtonStatus(selectedProduct.buttonElement, "ORDERED", "#4CAF50", "white");
     
     setTimeout(() => {
-      selectedProduct.buttonElement.textContent = "Order Now";
-      selectedProduct.buttonElement.style.background = "#FFC107";
-      selectedProduct.buttonElement.style.color = "black";
+      resetButton(selectedProduct.buttonElement);
       amountInput.value = "";
     }, 6000);
   });
 
-  declineBtn.addEventListener('click', function() {
+  declineBtn?.addEventListener('click', () => {
     if (!selectedProduct) return;
     
-    selectedProduct.buttonElement.textContent = "CANCELLED";
-    selectedProduct.buttonElement.style.background = "#f44336";
-    selectedProduct.buttonElement.style.color = "white";
-    
-    selectedProduct.buttonElement.scrollIntoView({ 
-      behavior: 'smooth',
-      block: 'center'
-    });
+    updateButtonStatus(selectedProduct.buttonElement, "CANCELLED", "#f44336", "white");
     
     setTimeout(() => {
-      selectedProduct.buttonElement.textContent = "Order Now";
-      selectedProduct.buttonElement.style.background = "#FFC107";
-      selectedProduct.buttonElement.style.color = "black";
+      resetButton(selectedProduct.buttonElement);
       amountInput.value = "";
     }, 6000);
   });
+
+  function updateButtonStatus(button, text, bgColor, textColor) {
+    button.textContent = text;
+    button.style.background = bgColor;
+    button.style.color = textColor;
+    button.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetButton(button) {
+    button.textContent = "Order Now";
+    button.style.background = "#FFC107";
+    button.style.color = "black";
+  }
 
   showAllProducts();
 });
